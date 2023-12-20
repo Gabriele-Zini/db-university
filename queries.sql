@@ -21,3 +21,10 @@ FROM `students`
 WHERE DATEDIFF(CURDATE(), `date_of_birth`) / 365.25 > 30 -- il .25 l'ho messo per contare gli anni bisestili, altrimenti mi contava i giorni dei neo-trentenni dal 26 dicembre 1993
 ORDER BY `date_of_birth` DESC;
 
+-- questa variante è più precisa e mostra anche gli students che hanno compiuto 30 anni nel giorno corrente
+
+SELECT `name`, `surname`, `date_of_birth`
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) >= 30
+ORDER BY `date_of_birth` DESC;
+
