@@ -16,7 +16,7 @@ ORDER BY `cfu` ASC;
 
 -- 3. Selezionare tutti gli studenti che hanno più di 30 anni
 
-SELECT `name`, `surname`, `date_of_birth`
+SELECT `name`, `surname`, `date_of_birth`,  TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) AS `anni`
 FROM `students`
 WHERE DATEDIFF(CURDATE(), `date_of_birth`) / 365.25 > 30 -- il .25 l'ho messo per contare gli anni bisestili, altrimenti mi contava i giorni dei neo-trentenni dal 26 dicembre 1993
 ORDER BY `date_of_birth` DESC;
@@ -30,7 +30,7 @@ ORDER BY `date_of_birth` DESC;
 
 -- 3.2 secondo l'interpretazione che la categoria da selezionare è solo maggiore di 30 anni e non maggiore/uguale
 
-SELECT `name`, `surname`, `date_of_birth`
+SELECT `name`, `surname`, `date_of_birth`,  TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) AS `anni`
 FROM `students`
 WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30
 ORDER BY `date_of_birth` DESC;
