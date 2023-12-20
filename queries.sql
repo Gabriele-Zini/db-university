@@ -23,7 +23,7 @@ ORDER BY `date_of_birth` DESC;
 
 -- 3.1 questa variante è più precisa e mostra anche gli students che hanno compiuto 30 anni nel giorno corrente
 
-SELECT `name`, `surname`, `date_of_birth`
+SELECT `name`, `surname`, `date_of_birth`, TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) AS `anni`
 FROM `students`
 WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) >= 30
 ORDER BY `date_of_birth` DESC;
@@ -62,11 +62,11 @@ ORDER BY `name` ASC;
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 
-SELECT  COUNT(*) as `number_of_departments` 
+SELECT  COUNT(*) AS `number_of_departments` 
 FROM `departments`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT  COUNT(*) as `teacher_without_phone_number` 
+SELECT  COUNT(*) AS `teacher_without_phone_number` 
 FROM `teachers` 
 WHERE `phone` IS NULL;
