@@ -3,7 +3,7 @@
 SELECT `name`, `surname`, `date_of_birth` 
 FROM `students`
 WHERE YEAR(`date_of_birth`) = 1990
-ORDER BY `date_of_birth` ASC
+ORDER BY `date_of_birth` ASC;
 
 
 -- 2. Selezionare tutti i corsi che valgono più di 10 crediti (479)
@@ -11,7 +11,7 @@ ORDER BY `date_of_birth` ASC
 SELECT `name`, `cfu`
 FROM `courses`
 WHERE `cfu` > 10
-ORDER BY `cfu` ASC
+ORDER BY `cfu` ASC;
 
 
 -- 3. Selezionare tutti gli studenti che hanno più di 30 anni
@@ -34,7 +34,7 @@ ORDER BY `date_of_birth` DESC;
 
 SELECT `period`, `year`
 FROM `courses`
-WHERE `period`= 'I semestre' AND `year`='1'
+WHERE `period`= 'I semestre' AND `year`='1';
 
 
 -- 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21)
@@ -50,11 +50,17 @@ ORDER BY `hour` ASC;
 SELECT `name` 
 FROM `degrees`
 WHERE `level`= 'magistrale'
-ORDER BY `name` ASC
+ORDER BY `name` ASC;
 
 
 
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 
 SELECT  COUNT(*) as `number_of_departments` 
-FROM `departments` 
+FROM `departments`;
+
+-- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+SELECT  COUNT(*) as `teacher_without_phone_number` 
+FROM `teachers` 
+WHERE `phone` IS NULL;
