@@ -28,6 +28,12 @@ FROM `students`
 WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) >= 30
 ORDER BY `date_of_birth` DESC;
 
+-- 3.2 secondo l'interpretazione che la categoria da selezionare è solo maggiore di 30 anni e non maggiore/uguale
+
+SELECT `name`, `surname`, `date_of_birth`
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30
+ORDER BY `date_of_birth` DESC;
 
 
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
