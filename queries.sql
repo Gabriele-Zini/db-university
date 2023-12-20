@@ -51,3 +51,10 @@ SELECT `name`
 FROM `degrees`
 WHERE `level`= 'magistrale'
 ORDER BY `name` ASC
+
+
+
+-- 7. Da quanti dipartimenti è composta l'università? (12)
+
+SELECT  COUNT(*) as `number_of_departments` 
+FROM `departments` 
