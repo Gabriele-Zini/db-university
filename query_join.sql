@@ -69,3 +69,17 @@ INNER JOIN `courses`
 ON `exams`.`course_id`=`courses`.`id`
 GROUP BY `students`.`name`, `students`.`surname`, `courses`.`name`
 ORDER BY `students`.`surname`;
+
+-- nel caso si volesse scremare solo quelli che hanno passato l'esame
+
+SELECT  `students`.`surname`, `students`.`name`, `courses`.`name`, COUNT(`courses`.`name`) AS `num_try`,  MAX(`exam_student`.`vote`)  AS `max_vote`
+FROM `students`
+INNER JOIN `exam_student`
+ON `exam_student`.`student_id`= `students`.`id`
+INNER JOIN `exams`
+ON `exam_student`.`exam_id`= `exams`.`id`
+INNER JOIN `courses`
+ON `exams`.`course_id`=`courses`.`id`
+GROUP BY `students`.`name`, `students`.`surname`, `courses`.`name`
+HAVING MAX(`exam_student`.`vote`) >=18
+ORDER BY `students`.`surname`;
