@@ -72,7 +72,7 @@ ORDER BY `students`.`surname`;
 
 -- nel caso si volesse scremare solo quelli che hanno passato l'esame
 
-SELECT  `students`.`surname`, `students`.`name`, `courses`.`name`, COUNT(`courses`.`name`) AS `num_try`,  MAX(`exam_student`.`vote`)  AS `max_vote`
+SELECT  `students`.`surname`, `students`.`name`, `courses`.`name` AS `course_name`, COUNT(`courses`.`name`) AS `num_try`,  MAX(`exam_student`.`vote`)  AS `max_vote`
 FROM `students`
 INNER JOIN `exam_student`
 ON `exam_student`.`student_id`= `students`.`id`
