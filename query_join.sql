@@ -59,7 +59,7 @@ ORDER BY `teachers`.`surname` ASC;
 
 -- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto persuperare ciascuno dei suoi esami
 
-SELECT  `students`.`surname`, `students`.`name`, `courses`.`name`, COUNT(`courses`.`name`) AS `num_try` 
+SELECT  `students`.`surname`, `students`.`name`, `courses`.`name` AS `course_name`, COUNT(`courses`.`name`) AS `num_try` 
 FROM `students`
 INNER JOIN `exam_student`
 ON `exam_student`.`student_id`= `students`.`id`
